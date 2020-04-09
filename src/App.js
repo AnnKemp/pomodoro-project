@@ -9,6 +9,7 @@ const stop = <button onClick="">Stop</button>;
 const plus = <button onClick={sum(minutes)}>+</button>;
 const min = <button onClick={minus(minutes)}>-</button>;
 
+// niet met die minutes+=1 optellen of aftrekken, states hiervoor gebruiken, de functies hieronder nog aanpassen/veranderen
 function sum(minutes) {
     minutes+=1;
     return minutes;
