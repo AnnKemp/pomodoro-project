@@ -22,6 +22,7 @@ function sum(minutes) {
             input: e.target.value,
             userAge: ‘’
 });*/
+// deze clock als basis van mijne count down gebruiken
 class Clock extends React.Component {
     constructor(props) {
         super(props);
