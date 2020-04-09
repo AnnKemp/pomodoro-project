@@ -1,31 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
 
+let timer=false;
+let minutes=20;
+
+const start = <button onClick="">Start</button>;
+const stop = <button onClick="">Stop</button>;
+const plus = <button onClick={sum(minutes)}>+</button>;
+const min = <button onClick={minus(minutes)}>-</button>;
+
+function sum(minutes) {
+    minutes+=1;
+    return minutes;
+}function minus(minutes) {
+    minutes-=1;
+    return minutes;
+}
+/*clicked(e) {
+    setState({
+            input: e.target.value,
+            userAge: ‘’
+});*/
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+    }
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+    render() {
+        return (
+            <div>
+                <h1>Count down</h1>
+                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+            </div>
+        );
+    }
+}
 function App() {
-  const JSX = (
-      <div>
-        <h1>Hello World</h1>
-        <p>Lets render this to the DOM</p>
-      </div>
-  );
-    const element = React.createElement(
-        'h1',
-        {className: 'greeting'},
-        'Dadada!'
-    );
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <p>Lets render this to the DOM</p>
-      {JSX}<br />{element}
+
+        {/*  { (timer==true)
+            ? stop:start
+            (start==true)
+            ? reset
+            : buttonThree}*/}
+    <br />
+        <Clock />
       <button onClick={() => this.setState({ liked: true })}>
-        Like
+        Start
       </button>
-        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+
     </div>
   );
 }
-setInterval(App, 1000);
 export default App;
 
