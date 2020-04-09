@@ -55,11 +55,14 @@ function App() {
   return (
     <div className="App">
 
-        {/*  { (timer==true)
+        {/* //verkorte if else constructie om te bepalen welke knop (zie de constanten) wanneer wordt getoont
+         { (timer==true)
             ? stop:start
             (start==true)
             ? reset
-            : buttonThree}*/}
+            : buttonThree}
+            // hieronder nog een interessante knop-notatie die ik misschien kan gebruiken om de start knop in een reset knop te veranderen of zoiets
+            */}
     <br />
         <Clock />
       <button onClick={() => this.setState({ liked: true })}>
