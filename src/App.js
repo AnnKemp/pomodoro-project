@@ -80,8 +80,8 @@ class Timer extends React.Component {
                 <button onClick={this.sum}>+</button>
                 <button onClick={this.minus}>-</button>
 
-                {(this.timer===true)?Stop:Start}
-                {/*  // bovenstaand tonen van de knoppen (primitieve proefversie, eerste stap, gaat wel werken nu nog zoeken hoe ik mijn constanten moet formuleren zodat ze geen errors geven
+                {(this.state.timer===true)?Stop:Start}
+                {/*  // bovenstaand tonen van de knoppen (primitieve proefversie, eerste stap, gaat wel werken nu nog zoeken hoe ik mijn constanten moet formuleren zodat ze geen errors geven  // nog testen met of zonder state ertussen
 
                 (start==true)
             ? reset
