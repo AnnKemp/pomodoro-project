@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 // de knoppen hieronder voor later in de if/else constructie om als constanten aan te roepen om dan de ene te tonen en dan de andere etc. zie opdracht
-//const start = <button onClick="">Start</button>;
-//const stop = <button onClick="">Stop</button>;
-//const plus = <button onClick={sum()}>+</button>;
-//const min = <button onClick={minus()}>-</button>;
 
-// timer=false;
-/*clicked(e) {
+//const Start = <button onClick={this.start}>Start</button>;
+//const Stop = <button onClick={this.stop}>Stop</button>;
+//const Reset=<button onClick={this.reset}>Reset</button>;
+//const Plus = <button onClick={this.sum}>+</button>
+//const Min = <button onClick={this.minus}>-</button>;
+
+// timer=false; // momenteel nog niet nodig
+/*clicked(e) { // vind dit interessante code, momenteel nog niet nodig
     setState({
             input: e.target.value,
             userAge: ‘’
@@ -34,32 +36,32 @@ class Timer extends React.Component {
         clearInterval(this.timerID);
     };
     stop() {
-        clearInterval(this.timerID); // dit wordt aangeroepen door de stopknop en dit werkt!
+        clearInterval(this.timerID);
     }
-    start() { // dit wordt aangeroepen door de startknop en dit werkt! :)
+    start() {
         this.timerID = setInterval(
             () => this.tick(),
             1000
         );
     }
-    reset() { // dit werkt! :)
+    reset() {
         this.setState({
             minutes:20
         });
     }
-    sum() { // dit werkt! :)
+    sum() {
         const pluss=(this.state.minutes)+1;
         this.setState({
             minutes: pluss
         });
     }
-    minus() { // en dit werkt dus niet! nakijken waarom momenteel nog niet gevonden
+    minus() { // en dit werkt dus niet! nakijken waarom, momenteel nog niet gevonden,hoop op  typo
         const minun=(this.state.minutes)-1;
         this.setState({
             minutes: minun
         });
     }
-    tick() { // dit werkt! :)
+    tick() {
         const min=(this.state.minutes)-1;
         this.setState({
             minutes: min
