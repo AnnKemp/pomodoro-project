@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
-// de knoppen hieronder voor later in de if/else constructie om als constanten aan te roepen
+// de knoppen hieronder voor later in de if/else constructie om als constanten aan te roepen om dan de ene te tonen en dan de andere etc. zie opdracht
 //const start = <button onClick="">Start</button>;
 //const stop = <button onClick="">Stop</button>;
 //const plus = <button onClick={sum()}>+</button>;
@@ -20,6 +20,7 @@ class Timer extends React.Component {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.reset = this.reset.bind(this);
         this.sum = this.sum.bind(this);
         this.minus= this.minus(this);
     }
@@ -33,13 +34,18 @@ class Timer extends React.Component {
         clearInterval(this.timerID);
     };
     stop() {
-        clearInterval(this.timerID); // dit wordt aangeroepen door de stopknop
+        clearInterval(this.timerID); // dit wordt aangeroepen door de stopknop en dit werkt!
     }
-    start() { // dit wordt aangeroepen door de start knop en dit werkt! :)
+    start() { // dit wordt aangeroepen door de startknop en dit werkt! :)
         this.timerID = setInterval(
             () => this.tick(),
             1000
         );
+    }
+    reset() { // dit werkt! :)
+        this.setState({
+            minutes:20
+        });
     }
     sum() { // dit werkt! :)
         const pluss=(this.state.minutes)+1;
@@ -66,6 +72,7 @@ class Timer extends React.Component {
                 <h2>{this.state.minutes}</h2>
                 <button onClick={this.start}>Start</button>
                 <button onClick={this.stop}>Stop</button>
+                <button onClick={this.reset}>Reset</button>
                 <button onClick={this.sum}>+</button>
                 <button onClick={this.minus}>-</button>
 
