@@ -1,34 +1,29 @@
 import React, {useEffect} from 'react';
 import './App.css';
+// de knoppen hieronder voor later in de if/else constructie om als constanten aan te roepen
+//const start = <button onClick="">Start</button>;
+//const stop = <button onClick="">Stop</button>;
+//const plus = <button onClick={sum()}>+</button>;
+//const min = <button onClick={minus()}>-</button>;
 
-let timer=false;
-let minutes=20;
-
-const start = <button onClick="">Start</button>;
-const stop = <button onClick="">Stop</button>;
-const plus = <button onClick={sum(minutes)}>+</button>;
-const min = <button onClick={minus(minutes)}>-</button>;
-
-// niet met die minutes+=1 optellen of aftrekken, states hiervoor gebruiken, de functies hieronder nog aanpassen/veranderen
-function sum(minutes) {
-    minutes+=1;
-    return minutes;
-}function minus(minutes) {
-    minutes-=1;
-    return minutes;
-}
+// timer=false;
 /*clicked(e) {
     setState({
             input: e.target.value,
             userAge: ‘’
 });*/
-// deze clock als basis van mijne count down gebruiken
-class Clock extends React.Component {
+
+class Timer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {date: new Date()};
+        this.state = {minutes:20, timerID:''};
+
+        this.stop = this.stop.bind(this);
+        this.start = this.start.bind(this);
+        this.sum = this.sum.bind(this);
+        this.minus= this.minus(this);
     }
-    componentDidMount() {
+    componentDidMount() { // method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
         this.timerID = setInterval(
             () => this.tick(),
             1000
@@ -36,26 +31,47 @@ class Clock extends React.Component {
     }
     componentWillUnmount() {
         clearInterval(this.timerID);
+    };
+    stop() {
+        clearInterval(this.timerID); // dit wordt aangeroepen door de stopknop
     }
-    tick() {
+    start() { // dit wordt aangeroepen door de start knop en dit werkt! :)
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+    sum() { // dit werkt! :)
+        const pluss=(this.state.minutes)+1;
         this.setState({
-            date: new Date()
+            minutes: pluss
+        });
+    }
+    minus() { // en dit werkt dus niet! nakijken waarom momenteel nog niet gevonden
+        const minun=(this.state.minutes)-1;
+        this.setState({
+            minutes: minun
+        });
+    }
+    tick() { // dit werkt! :)
+        const min=(this.state.minutes)-1;
+        this.setState({
+            minutes: min
         });
     }
     render() {
         return (
             <div>
-                <h1>Count down</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-            </div>
-        );
-    }
-}
-function App() {
-  return (
-    <div className="App">
+                <h1>Countdown:</h1>
+                <h2>{this.state.minutes}</h2>
+                <button onClick={this.start}>Start</button>
+                <button onClick={this.stop}>Stop</button>
+                <button onClick={this.sum}>+</button>
+                <button onClick={this.minus}>-</button>
 
-        {/* //verkorte if else constructie om te bepalen welke knop (zie de constanten) wanneer wordt getoont
+
+                {/* //verkorte if else constructie om te bepalen welke knop (zie de constanten) wanneer wordt getoont
+                Dit gaat later bovenstaande knoppen vervangen
          { (timer==true)
             ? stop:start
             (start==true)
@@ -63,12 +79,14 @@ function App() {
             : buttonThree}
             // hieronder nog een interessante knop-notatie die ik misschien kan gebruiken om de start knop in een reset knop te veranderen of zoiets
             */}
-    <br />
-        <Clock />
-      <button onClick={() => this.setState({ liked: true })}>
-        Start
-      </button>
-
+            </div>
+        );
+    }
+}
+function App() {
+  return (
+    <div className="App">
+        <Timer />
     </div>
   );
 }
