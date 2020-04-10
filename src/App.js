@@ -40,16 +40,18 @@ class Timer extends React.Component {
     };
     stop() {
         clearInterval(this.timerID);
+        this.timer=false; // misschien beter this.state.timer ?? nog testen
     }
     start() {
         this.timerID = setInterval(
             () => this.tick(),
             1000
         );
+        this.timer=true; // misschien beter this.state.timer ?? nog testen
     }
     reset() {
         this.setState({
-            minutes:20
+            minutes:20, timer:false
         });
     }
     sum() {
@@ -80,14 +82,9 @@ class Timer extends React.Component {
                 <button onClick={this.sum}>+</button>
                 <button onClick={this.minus}>-</button>
 
-                {(this.state.timer===true)?Stop:Start}
-                {/*  // bovenstaand tonen van de knoppen (primitieve proefversie, eerste stap, gaat wel werken nu nog zoeken hoe ik mijn constanten moet formuleren zodat ze geen errors geven  // nog testen met of zonder state ertussen
-
-                (start==true)
-            ? reset
-            : buttonThree}
-            // hieronder nog een interessante knop-notatie die ik misschien kan gebruiken om de start knop in een reset knop te veranderen of zoiets
-            */}
+                {//(this.state.timer===false)?Start Plus Min:Reset Stop}
+                /*  // bovenstaande tonen van de knoppen (nu nog zoeken hoe ik mijn constanten moet formuleren zodat ze geen errors geven bovenaan  // nog testen met of zonder state ertussen // nog een oplossing zoeken voor meerdere constanten naast elkaar hier,dus iets ipv die spaties want die geven syntax errors // ben momenteel aan het testen met de start-button, als die werkt is het simpel toepassen op de rest
+ */}
             </div>
         );
     }
