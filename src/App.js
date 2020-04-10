@@ -24,7 +24,7 @@ class Timer extends React.Component {
         this.start = this.start.bind(this);
         this.reset = this.reset.bind(this);
         this.sum = this.sum.bind(this);
-        this.minus= this.minus(this);
+        this.minus= this.minus.bind(this);
     }
     componentDidMount() { // method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
         this.timerID = setInterval(
