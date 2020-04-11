@@ -23,14 +23,18 @@ class Timer extends React.Component {
             () => this.tick(),
             1000
         );
-        this.state.timer=false;
+        this.setState({
+            timer:false
+        });
     }
     componentWillUnmount() {
         clearInterval(this.timerID);
     };
     stop() {
         clearInterval(this.timerID);
-        this.state.timer=true; // misschien beter this.state.timer ?? nog testen
+        this.setState({
+            timer:true
+        });
     }
     start() {
         this.timerID = setInterval(
@@ -79,9 +83,7 @@ class Timer extends React.Component {
                 {(this.state.timer===false)?Reset:Start}
                 {(this.state.timer===false)?Plus:Start}
                 {/*(this.state.timer===false)?Start Plus Min:Reset Stop*/}
-               { /*  // bovenstaande tonen van de knoppen (nu nog zoeken hoe ik mijn constanten moet formuleren zodat ze geen errors geven bovenaan  // nog testen met of zonder state ertussen // nog een oplossing zoeken voor meerdere constanten naast elkaar hier,dus iets ipv die spaties want die geven syntax errors // ben momenteel aan het testen met de start-button, als die werkt is het simpel toepassen op de rest
- */}
-            </div>
+                </div>
         );
     }
 }
