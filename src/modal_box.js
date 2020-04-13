@@ -2,13 +2,13 @@
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn"); // dit moet ik aanpassen want dat gaat niet via een button
+var btn = document.getElementById("myBtn"); // dit moet ik aanpassen want dat gaat niet via een button, deze moet verwijderd worden
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close"); // hier heb ik de [0] verwijdert omdat het voor alle close classes moet werken
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() { // dit moet ook iets anders worden dan de onclick
+btn.onclick = function() { // dit moet ook iets anders worden dan de onclick, die btn heb ik ook verwijderd
     modal.style.display = "block";
 }
 

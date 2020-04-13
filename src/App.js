@@ -108,7 +108,7 @@ class Timer extends React.Component {
                            <div class="modal-content">
                                <span class="close">&times;</span>
                                <p>take a break</p>
-                               <button onClick={Start}>Start</button>
+                               <button onClick={Start} class="close">Start over</button>
                            </div>
 
                        </section>
