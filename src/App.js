@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './modal_box.css'
 
 /*clicked(e) { // vind dit interessante code, momenteel nog niet nodig
     setState({
@@ -96,9 +97,24 @@ class Timer extends React.Component {
             <h2>{this.state.minutes}</h2>
 
                         {Reset}<br /><br />{Stop}
-                        {(this.state.minutes<=4?this.popup:'')}
                     </div>
                 );}
+            if(this.state.minutes<=4){
+                return(
+                   <div>
+
+                       <section id="myModal" class="modal">
+
+                           <div class="modal-content">
+                               <span class="close">&times;</span>
+                               <p>take a break</p>
+                               <button onClick={Start}>Start</button>
+                           </div>
+
+                       </section>
+                   </div>
+                )
+            }
     }
 }
 function App() {
