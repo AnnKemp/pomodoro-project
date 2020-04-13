@@ -75,19 +75,24 @@ class Timer extends React.Component {
         const Plus = <button onClick={this.sum}>+</button>
         const Min = <button onClick={this.minus}>-</button>;
 
-       function check(){if(this.state.timer){ return Start;}else{return Stop;}}
-        return (
-            <div>
-                <h1>Countdown:</h1>
-                <h2>{this.state.minutes}</h2>
-                {check()}
+            if (this.state.timer==true) {
+                return (
+                    <div>
+                    <h1>Countdown:</h1>
+                    <h2>{this.state.minutes}</h2>
 
+                        {Start}{Plus}{Min}{Reset}
+                    </div>
+                );
+            } else {
+                return (
+                    <div>
+            <h1>Countdown:</h1>
+            <h2>{this.state.minutes}</h2>
 
-
-
-                {/*(this.state.timer===false)?Start Plus Min:Reset Stop*/}
-                </div>
-        );
+                        {Stop}
+                    </div>
+                );}
     }
 }
 function App() {
