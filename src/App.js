@@ -109,10 +109,10 @@ class Timer extends React.Component {
                        {Reset}<br /><br />{Stop}
 
                        <section id="myModal" class="modal">
-                           <div class="modal-content">
-                               <span class="close">&times;</span>
+                           <div className="modal-content">
+                               <span className="close">&times;</span>
                                <p>take a break</p>
-                               <button onClick={Reset} class="close">Start over</button>
+                               <button onClick={Reset} className="close">Start over</button>
                            </div>
                        </section>
                    </div>
