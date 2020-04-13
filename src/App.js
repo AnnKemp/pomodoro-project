@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import './modal_box.css'
 
-/*clicked(e) { // vind dit interessante code, momenteel nog niet nodig
-    setState({
-            input: e.target.value,
-            userAge: ‘’
+/*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
+    setState({  // zou getState bestaan
+            input: e.target.value, // en dan ipv input ...
+            userAge: ‘’ // zonder die userAge
 });*/
 
 class Timer extends React.Component {
@@ -18,7 +18,6 @@ class Timer extends React.Component {
         this.reset = this.reset.bind(this);
         this.sum = this.sum.bind(this);
         this.minus= this.minus.bind(this);
-        this.popup= this.popup.bind(this);
     }
     componentDidMount() { // method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
         this.timerID = setInterval(
@@ -70,10 +69,7 @@ class Timer extends React.Component {
             minutes: min
         });
     }
-    popup(){
-        const pop=window.open("", "", "width=200,height=100", "dialog=yes");
-        pop.document.write("<p>take a break</p>");
-    }
+
     render() {
         const Start =<button onClick={this.start}>Start</button>;
         const Stop = <button onClick={this.stop}>Stop</button>;
@@ -99,7 +95,7 @@ class Timer extends React.Component {
                         {Reset}<br /><br />{Stop}
                     </div>
                 );}
-            if(this.state.minutes<=4){
+            if(this.state.minutes<=4){ // dit werkt nog niet, hier moet ik op de een of ander manier het event opvangen met (e) of (event) zie de code boven
                 return(
                    <div>
                        <h1>Countdown:</h1>
