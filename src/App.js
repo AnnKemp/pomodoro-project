@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import './modal_box.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+// hier de javascript voor modal box nog importeren nadat ik die aangepast heb
 
 /*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
     setState({  // zou getState bestaan
@@ -111,7 +112,7 @@ class Timer extends React.Component {
                            <div class="modal-content">
                                <span class="close">&times;</span>
                                <p>take a break</p>
-                               <button onClick={Start} class="close">Start over</button>
+                               <button onClick={Reset} class="close">Start over</button>
                            </div>
                        </section>
                    </div>
