@@ -17,6 +17,7 @@ class Timer extends React.Component {
         this.reset = this.reset.bind(this);
         this.sum = this.sum.bind(this);
         this.minus= this.minus.bind(this);
+        this.popup= this.popup.bind(this);
     }
     componentDidMount() { // method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
         this.timerID = setInterval(
@@ -68,6 +69,10 @@ class Timer extends React.Component {
             minutes: min
         });
     }
+    popup(){
+        const pop=window.open("", "", "width=200,height=100", "dialog=yes");
+        pop.document.write("<p>take a break</p>");
+    }
     render() {
         const Start =<button onClick={this.start}>Start</button>;
         const Stop = <button onClick={this.stop}>Stop</button>;
@@ -81,7 +86,7 @@ class Timer extends React.Component {
                     <h1>Countdown:</h1>
                     <h2>{this.state.minutes}</h2>
 
-                        {Start}{Plus}{Min}
+                        {Start}<br /><br />{Plus}{Min}
                     </div>
                 );
             } else {
@@ -90,18 +95,10 @@ class Timer extends React.Component {
             <h1>Countdown:</h1>
             <h2>{this.state.minutes}</h2>
 
-                        {Stop}{Reset}
+                        {Reset}<br /><br />{Stop}
+                        {(this.state.minutes<=4?this.popup:'')}
                     </div>
                 );}
-            if(this.state.minutes<=4){
-                return(
-                    <div>
-                        {window.open(' ','height=200,width=400,scrollbars=no')}
-
-
-                    </div>
-                );
-            }
     }
 }
 function App() {
