@@ -102,15 +102,15 @@ class Timer extends React.Component {
             if(this.state.minutes<=4){
                 return(
                    <div>
+                       <h1>Countdown:</h1>
+                       {Reset}<br /><br />{Stop}
 
                        <section id="myModal" class="modal">
-
                            <div class="modal-content">
                                <span class="close">&times;</span>
                                <p>take a break</p>
                                <button onClick={Start} class="close">Start over</button>
                            </div>
-
                        </section>
                    </div>
                 )
