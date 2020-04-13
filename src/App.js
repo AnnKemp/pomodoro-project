@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './modal_box.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
     setState({  // zou getState bestaan
@@ -95,6 +96,11 @@ class Timer extends React.Component {
                         {Reset}<br /><br />{Stop}
                     </div>
                 );}
+       /* {unreadMessages.length > 0 &&    // misschien kan ik dit gebruiken
+        <h2>
+            You have {unreadMessages.length} unread messages.
+        </h2>
+        }*/
             if(this.state.minutes<=4){ // dit werkt nog niet, hier moet ik op de een of ander manier het event opvangen met (e) of (event) zie de code boven
                 return(
                    <div>
