@@ -47,7 +47,7 @@ class Timer extends React.Component {
     }
     reset() {
         this.setState({
-            minutes:20, timer:true
+            minutes:20, timer:false
         });
     }
     sum() {
@@ -81,7 +81,7 @@ class Timer extends React.Component {
                     <h1>Countdown:</h1>
                     <h2>{this.state.minutes}</h2>
 
-                        {Start}{Plus}{Min}{Reset}
+                        {Start}{Plus}{Min}
                     </div>
                 );
             } else {
@@ -90,9 +90,18 @@ class Timer extends React.Component {
             <h1>Countdown:</h1>
             <h2>{this.state.minutes}</h2>
 
-                        {Stop}
+                        {Stop}{Reset}
                     </div>
                 );}
+            if(this.state.minutes<=4){
+                return(
+                    <div>
+                        {window.open(' ','height=200,width=400,scrollbars=no')}
+
+
+                    </div>
+                );
+            }
     }
 }
 function App() {
