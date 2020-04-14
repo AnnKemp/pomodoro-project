@@ -99,6 +99,7 @@ class Timer extends React.Component {
                     <h2>{this.state.minutes}</h2>
 
                         {Start}<br /><br />{Plus}{Min}
+
                         { (this.state.minutes) <= 4 &&
                             <section id="myModal" style={{display:"block"}} className="modal" onClick={this.close}>
                             <div className="modal-content">
@@ -117,6 +118,16 @@ class Timer extends React.Component {
             <h2>{this.state.minutes}</h2>
 
                         {Reset}<br /><br />{Stop}
+
+                        { (this.state.minutes) <= 4 &&
+                        <section id="myModal" style={{display:"block"}} className="modal" onClick={this.close}>
+                            <div className="modal-content">
+                                <span className="close" onClick={this.close}>&times;</span>
+                                <p>take a break</p>
+                                <button onClick={this.startover}>Start over</button>
+                            </div>
+                        </section>
+                        }
                     </div>
                 );}
     }
