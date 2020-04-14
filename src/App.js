@@ -99,14 +99,14 @@ class Timer extends React.Component {
                     <h2>{this.state.minutes}</h2>
 
                         {Start}<br /><br />{Plus}{Min}
-                        {/* (this.state.minutes<=4)?*/
+                        { (this.state.minutes) <= 4 &&
                             <section id="myModal" style={{display:"block"}} className="modal" onClick={this.close}>
                             <div className="modal-content">
                             <span className="close" onClick={this.close}>&times;</span>
                             <p>take a break</p>
                             <button onClick={this.startover}>Start over</button>
                             </div>
-                            </section>/*:''*/
+                            </section>
                         }
                     </div>
                 );
@@ -119,12 +119,6 @@ class Timer extends React.Component {
                         {Reset}<br /><br />{Stop}
                     </div>
                 );}
-       /* {unreadMessages.length > 0 &&    // misschien kan ik dit gebruiken
-        <h2>
-            You have {unreadMessages.length} unread messages.
-        </h2>
-        }*/
-
     }
 }
 function App() {
