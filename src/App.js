@@ -2,12 +2,6 @@ import React from 'react';
 import './App.css';
 import './modal_box.css'
 
-/*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
-    setState({  // zou getState bestaan
-            input: e.target.value, // en dan ipv input ...
-            userAge: ‘’ // zonder die userAge
-});*/
-
 class Timer extends React.Component {
     constructor(props) {
         super(props);
