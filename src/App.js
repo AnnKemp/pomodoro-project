@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import './modal_box.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 // hier de javascript voor modal box nog importeren nadat ik die aangepast heb
 
 /*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
@@ -95,6 +94,13 @@ class Timer extends React.Component {
             <h2>{this.state.minutes}</h2>
 
                         {Reset}<br /><br />{Stop}
+                        <section id="myModal" className="modal">
+                            <div className="modal-content">
+                                <span className="close">&times;</span>
+                                <p>take a break</p>
+                                <button onClick={Reset} className="close">Start over</button>
+                            </div>
+                        </section>
                     </div>
                 );}
        /* {unreadMessages.length > 0 &&    // misschien kan ik dit gebruiken
