@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import './modal_box.css'
-// hier de javascript voor modal box nog importeren nadat ik die aangepast heb
 
 /*clicked(e) { // in de plaats van clicked zou ik 'het lopend event' moeten opvangen
     setState({  // zou getState bestaan
@@ -16,9 +15,11 @@ class Timer extends React.Component {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.startover = this.startover.bind(this);
         this.reset = this.reset.bind(this);
         this.sum = this.sum.bind(this);
         this.minus= this.minus.bind(this);
+        this.close= this.close.bind(this);
     }
     componentDidMount() { // method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
         this.timerID = setInterval(
@@ -47,6 +48,15 @@ class Timer extends React.Component {
             timer:false
         });
     }
+    startover() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+        this.setState({
+            minutes:20, timer:false
+        });
+    }
     reset() {
         this.setState({
             minutes:20, timer:false
@@ -70,6 +80,10 @@ class Timer extends React.Component {
             minutes: min
         });
     }
+    close(){
+        const modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
 
     render() {
         const Start =<button onClick={this.start}>Start</button>;
@@ -85,6 +99,15 @@ class Timer extends React.Component {
                     <h2>{this.state.minutes}</h2>
 
                         {Start}<br /><br />{Plus}{Min}
+                        {/* (this.state.minutes<=4)?*/
+                            <section id="myModal" style={{display:"block"}} className="modal" onClick={this.close}>
+                            <div className="modal-content">
+                            <span className="close" onClick={this.close}>&times;</span>
+                            <p>take a break</p>
+                            <button onClick={this.startover}>Start over</button>
+                            </div>
+                            </section>/*:''*/
+                        }
                     </div>
                 );
             } else {
@@ -101,22 +124,7 @@ class Timer extends React.Component {
             You have {unreadMessages.length} unread messages.
         </h2>
         }*/
-            if(this.state.minutes<=4){ // dit werkt nog niet, hier moet ik op de een of ander manier het event opvangen met (e) of (event) zie de code boven
-                return(
-                   <div>
-                       <h1>Countdown:</h1>
-                       {Reset}<br /><br />{Stop}
 
-                       <section id="myModal" class="modal">
-                           <div className="modal-content">
-                               <span className="close">&times;</span>
-                               <p>take a break</p>
-                               <button onClick={Reset} className="close">Start over</button>
-                           </div>
-                       </section>
-                   </div>
-                )
-            }
     }
 }
 function App() {
