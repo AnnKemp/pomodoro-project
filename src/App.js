@@ -94,13 +94,6 @@ class Timer extends React.Component {
             <h2>{this.state.minutes}</h2>
 
                         {Reset}<br /><br />{Stop}
-                        <section id="myModal" className="modal">
-                            <div className="modal-content">
-                                <span className="close">&times;</span>
-                                <p>take a break</p>
-                                <button onClick={Reset} className="close">Start over</button>
-                            </div>
-                        </section>
                     </div>
                 );}
        /* {unreadMessages.length > 0 &&    // misschien kan ik dit gebruiken
