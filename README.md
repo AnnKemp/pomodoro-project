@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Click this link to get a live-view: https://annkemp.github.io/pomodoro-project/
+
 ## Available Scripts
 
 In the project directory, you can run:
